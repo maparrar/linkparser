@@ -1,0 +1,9 @@
+.linkparser #atc_bar{width:500px;}
+.linkparser #attach_content{border:1px solid #ccc;padding:10px;margin-top:10px;}
+.linkparser #atc_images {width:100px;height:120px;overflow:hidden;float:left;}
+.linkparser #atc_info {width:350px;float:left;height:100px;text-align:left; padding:10px;}
+.linkparser #atc_title {font-size:14px;display:block;}
+.linkparser #atc_url {font-size:10px;display:block;}
+.linkparser #atc_desc {font-size:12px;}
+.linkparser #atc_total_image_nav{float:left;padding-left:20px}
+.linkparser #atc_total_images_info{float:left;padding:4px 10px;font-size:12px;}
