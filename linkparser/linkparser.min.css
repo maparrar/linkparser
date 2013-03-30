@@ -1,0 +1,82 @@
+.linkparser{
+    height: 300px;
+    width: 800px;
+}
+.linkparser .lp_link{
+    height: 10%;
+}
+.linkparser .lp_link .lp_url{
+    width: 80%;
+}
+.linkparser .lp_link .lp_parse{
+    cursor: pointer;
+    float: right;
+    height: 25px;
+    text-align: center;
+    width: 15%;
+}
+.linkparser .lp_loader{
+    height: 90%;
+}
+.linkparser .lp_loader .lp_content{
+    border:1px solid #ccc;
+    display: none;
+    height: 96%;
+    margin-top: 8px;
+    padding: 2%;
+    width: 96%;
+}
+.linkparser .lp_loader .lp_content .lp_response_images{
+    float: left;
+    height: 90%;
+    width: 30%;
+}
+.linkparser .lp_loader .lp_content .lp_response_images img{
+    width: 90%;
+}
+.linkparser .lp_loader .lp_content .lp_info{
+    float: left;
+    max-height: 90%;
+    text-align:left;
+    width: 70%;
+}
+.linkparser .lp_loader .lp_content .lp_response_title{
+    display: block;
+    font-size:14px;
+}
+.linkparser .lp_loader .lp_content .lp_url{
+    display: block;
+    font-size:10px;
+}
+.linkparser .lp_loader .lp_content .lp_response_description{
+    font-size:12px;
+    margin-top: 10px;
+}                        
+.linkparser .lp_loader .lp_content .lp_total_image_nav{
+    float: left;
+    margin-top: 15px;
+}
+.linkparser .lp_loader .lp_content .lp_total_images_info{
+    float: left;
+    font-size:12px;
+    margin: 18px 0 0 10px;
+}
+.linkparser .lp_loader .lp_prev{
+    background: url("img/prev.png") no-repeat;
+    height: 28px;
+    float: left;
+    width: 28px;
+}
+.linkparser .lp_loader .lp_next{
+    background: url("img/next.png") no-repeat;
+    height: 28px;
+    float: left;
+    width: 28px;
+}
+.linkparser .lp_loader .lp_loading{
+    background: url("img/load.gif") no-repeat;
+    display: none;
+    height: 28px;
+    margin-left: 48%;
+    width: 28px;
+}
