@@ -1,9 +1,7 @@
 .linkparser{
-    background: red;
     width: 400px;
 }
 .linkparser .lp_link{
-    background: green;
     height: 25px;
 }
 .linkparser .lp_link .lp_url{
@@ -17,30 +15,58 @@
     width: 15%;
 }
 .linkparser .lp_loader{
-    background: blue;
     height: 300px;
-    overflow: hidden;
 }
-.linkparser .lp_loader .lp_prev img{
-    background: url("img/prev.png") repeat-x scroll left bottom transparent;
+.linkparser .lp_loader .lp_content{
+    border:1px solid #ccc;
+    display: none;
+    height: 96%;
+    margin-top: 8px;
+    padding: 2%;
+    width: 96%;
 }
-.linkparser .lp_loader .lp_next img{
-    background: url("img/next.png") repeat-x scroll left bottom transparent;
+.linkparser .lp_loader .lp_content .lp_response_images{
+    float: left;
+    width: 30%;
+}
+.linkparser .lp_loader .lp_content .lp_info{
+    float: left;
+    max-height: 90%;
+    text-align:left;
+    width: 70%;
+}
+.linkparser .lp_loader .lp_content .lp_response_title{
+    display:block;
+    font-size:14px;
+}
+.linkparser .lp_loader .lp_content .lp_url{
+    display:block;
+    font-size:10px;
+}
+.linkparser .lp_loader .lp_content .lp_response_description{
+    font-size:12px;
+}                        
+.linkparser .lp_loader .lp_content .lp_total_image_nav{
+    float: left;
+    padding-left:20px
+}
+.linkparser .lp_loader .lp_content .lp_total_images_info{
+    float: left;
+    font-size:12px;
+    padding:4px 10px;
+}
+.linkparser .lp_loader .lp_prev{
+    background: url("img/prev.png") no-repeat;
+    height: 28px;
+    float: left;
+    width: 28px;
+}
+.linkparser .lp_loader .lp_next{
+    background: url("img/next.png") no-repeat;
+    height: 28px;
+    float: left;
+    width: 28px;
 }
 .linkparser .lp_loader .lp_loading img{
     background: url("img/load.gif") repeat-x scroll left bottom transparent;
 }
-
-
-
-
-
-.linkparser #atc_bar{width:500px;}
-.linkparser #attach_content{border:1px solid #ccc;padding:10px;margin-top:10px;}
-.linkparser #atc_images {width:100px;height:120px;overflow:hidden;float:left;}
-.linkparser #atc_info {width:350px;float:left;height:100px;text-align:left; padding:10px;}
-.linkparser #atc_title {font-size:14px;display:block;}
-.linkparser #atc_url {font-size:10px;display:block;}
-.linkparser #atc_desc {font-size:12px;}
-.linkparser #atc_total_image_nav{float:left;padding-left:20px}
-.linkparser #atc_total_images_info{float:left;padding:4px 10px;font-size:12px;}

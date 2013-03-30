@@ -55,7 +55,7 @@
         //Get the elements in variables
         var url=obj.find('.lp_url').val();
         var loading=obj.find('.lp_loading');
-        var loadedUrl=obj.find('#atc_url');
+        var loadedUrl=obj.find('.lp_url');
         //Response elements
         var respContent=obj.find('.lp_content');
         var respTitle=obj.find('.lp_response_title');
@@ -151,23 +151,20 @@
                 '<div class="lp_loading" align="center" id="atc_loading" style="display:none">'+
                     '<img src="" alt="Loading" />'+
                 '</div>'+
-                '<div class="lp_content" style="display:none">'+
+                '<div class="lp_content">'+
                     '<div class="lp_response_images"></div>'+
-                    '<div id="atc_info">'+
-                            '<label class="lp_response_title"></label>'+
-                            '<label id="atc_url"></label>'+
-//                            '<br clear="all" />'+
-                            '<label class="lp_response_description"></label>'+
-//                            '<br clear="all" />'+
+                    '<div class="lp_info">'+
+                        '<label class="lp_response_title"></label>'+
+                        '<label class="lp_url"></label>'+
+                        '<label class="lp_response_description"></label>'+
                     '</div>'+
-                    '<div id="atc_total_image_nav" >'+
-                            '<a class="lp_prev" href="#" id="prev"><img src=""  alt="Prev" border="0" /></a>'+
-                            '<a class="lp_next" href="#" id="next"><img src="" alt="Next" border="0" /></a>'+
+                    '<div class="lp_total_image_nav" >'+
+                        '<a class="lp_prev" href="#" id="prev"></a>'+
+                        '<a class="lp_next" href="#" id="next"></a>'+
                     '</div>'+
-                    '<div id="atc_total_images_info" >'+
-                            'Showing <span class="lp_cur_image_num">0</span> of <span class="lp_response_total_images">0</span> images'+
+                    '<div class="lp_total_images_info" >'+
+                        'Showing <span class="lp_cur_image_num">0</span> of <span class="lp_response_total_images">0</span> images'+
                     '</div>'+
-//                    '<br clear="all" />'+
                 '</div>'+
             '</div>';
     };
