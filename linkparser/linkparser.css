@@ -28,7 +28,11 @@
 }
 .linkparser .lp_loader .lp_content .lp_response_images{
     float: left;
+    height: 90%;
     width: 30%;
+}
+.linkparser .lp_loader .lp_content .lp_response_images img{
+    width: 90%;
 }
 .linkparser .lp_loader .lp_content .lp_info{
     float: left;
@@ -37,24 +41,25 @@
     width: 70%;
 }
 .linkparser .lp_loader .lp_content .lp_response_title{
-    display:block;
+    display: block;
     font-size:14px;
 }
 .linkparser .lp_loader .lp_content .lp_url{
-    display:block;
+    display: block;
     font-size:10px;
 }
 .linkparser .lp_loader .lp_content .lp_response_description{
     font-size:12px;
+    margin-top: 10px;
 }                        
 .linkparser .lp_loader .lp_content .lp_total_image_nav{
     float: left;
-    padding-left:20px
+    margin-top: 15px;
 }
 .linkparser .lp_loader .lp_content .lp_total_images_info{
     float: left;
     font-size:12px;
-    padding:4px 10px;
+    margin: 18px 0 0 10px;
 }
 .linkparser .lp_loader .lp_prev{
     background: url("img/prev.png") no-repeat;

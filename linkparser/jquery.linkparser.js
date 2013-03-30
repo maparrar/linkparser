@@ -58,8 +58,10 @@
         var loadedUrl=obj.find('.lp_url');
         //Response elements
         var respContent=obj.find('.lp_content');
+        var respInfo=obj.find('.lp_info');
         var respTitle=obj.find('.lp_response_title');
         var respDescription=obj.find('.lp_response_description');
+        var respImagesInfo=obj.find('.lp_total_images_info');
         var respTotalImages=obj.find('.lp_response_total_images');
         var respImages=obj.find('.lp_response_images');
         var curImage=obj.find('.lp_cur_image');
@@ -80,21 +82,27 @@
                 respDescription.text(response.description);
                 respTotalImages.text(response.total_images);
                 
-                //Add the images and hide them
-                respImages.empty();
-                $.each(response.images,function(a,b){
-                    respImages.append('<img src="'+b.img+'" width="100" id="'+(a+1)+'">');
-                });
-                respImages.find("img").hide();
-
+                //Hidden images if not available
+                if(response.total_images>0){
+                    //Add the images and hide them
+                    respImages.empty();
+                    $.each(response.images,function(a,b){
+                        respImages.append('<img src="'+b.img+'" width="100" id="'+(a+1)+'">');
+                    });
+                    respImages.find("img").hide();
+                    
+                    //Show first image
+                    respImages.find('img#1').fadeIn();
+                    curImage.val(1);
+                    curImageNum.html(1);
+                }else{
+                    respImages.hide();
+                    respInfo.width("100%");
+                    respImagesInfo.text("No images available");
+                }
                 //Flip Viewable Content 
                 respContent.fadeIn('slow');
                 loading.hide();
-
-                //Show first image
-                respImages.find('img#1').fadeIn();
-                curImage.val(1);
-                curImageNum.html(1);
 
                 // prev image
                 prev.click(function(e){
@@ -148,15 +156,13 @@
                 '<input type="hidden" class="lp_cur_image" />'+
             '</div>'+
             '<div class="lp_loader">'+
-                '<div class="lp_loading" align="center" id="atc_loading">'+
-//                    '<div src="" alt="Loading" />'+
-                '</div>'+
+                '<div class="lp_loading" align="center" id="atc_loading"></div>'+
                 '<div class="lp_content">'+
                     '<div class="lp_response_images"></div>'+
                     '<div class="lp_info">'+
-                        '<label class="lp_response_title"></label>'+
-                        '<label class="lp_url"></label>'+
-                        '<label class="lp_response_description"></label>'+
+                        '<div class="lp_response_title"></div>'+
+                        '<div class="lp_url"></div>'+
+                        '<div class="lp_response_description"></div>'+
                     '</div>'+
                     '<div class="lp_total_image_nav" >'+
                         '<a class="lp_prev" href="#" id="prev"></a>'+
