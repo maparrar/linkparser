@@ -27,12 +27,4 @@ SOFTWARE.
 
 How to use:
 ==========
-1. Server setup
-
-2. Client (browser) setup
-    2.1 Include the JQuery code:
-        <code>
-            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        </code>
-    2.2 Linkparser plugin setup:
-        - 
+https://github.com/maparrar/linkparser/wiki/Home
