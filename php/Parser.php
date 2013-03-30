@@ -4,6 +4,10 @@
  * Mar 2013
  * - Tony of Redsunsoft: http://www.redsunsoft.com/2011/01/parse-link-like-facebook-with-jquery-and-php/
  * - maparrar: maparrar (at) gmail (dot) com
+ * 
+ * @todo: Improve this class
+ * @todo: Create a method to parse each value
+ * @todo: Create a method to extract the images
  * */
 include_once 'Curl.php';
 class Parser {
