@@ -3,9 +3,31 @@
     <head>
         <title>Link Parser</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!--Include the JQuery code-->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <!--Include the linkparser plugin and the stylesheet-->
+        <link href="linkparser/linkparser.css" type="text/css" rel="stylesheet">
+        <script src="linkparser/jquery.linkparser.js"></script>
+        
+        
+        <script type="text/javascript">
+            $(document).ready(function(){
+                //Apply the plugin to the elements and pass the fetch.php script path
+                $("#firstExample").linkparser({
+                    fetchScript:"php/fetch.php",
+                    urlDefault:"http://www.redsunsoft.com/2011/01/parse-link-like-facebook-with-jquery-and-php/"
+                });
+                $("#secondExample").linkparser({
+                    fetchScript:"php/fetch.php",
+                    urlDefault:"http://www.louisgarneau.com/us-en/product/310735/1493805/Bags_%26amp%3B_Belts/TRI_WHEEL_T-60_BAG"
+                });
+            });
+        </script>
     </head>
     <body>
         <div>Details at: <a href="https://github.com/maparrar/linkparser" target="_blank">Github</a></div>
+        <div id="firstExample"></div>
+        <br/><br/>
+        <div id="secondExample"></div>
     </body>
 </html>

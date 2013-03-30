@@ -33,5 +33,5 @@ How to use:
         <code>
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         </code>
-    2.1 JQuery plugin
+    2.2 Linkparser plugin setup:
         - 

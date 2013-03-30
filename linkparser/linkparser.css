@@ -1,3 +1,40 @@
+.linkparser{
+    background: red;
+    width: 400px;
+}
+.linkparser .lp_link{
+    background: green;
+    height: 25px;
+}
+.linkparser .lp_link .lp_url{
+    width: 80%;
+}
+.linkparser .lp_link .lp_parse{
+    cursor: pointer;
+    float: right;
+    height: 25px;
+    text-align: center;
+    width: 15%;
+}
+.linkparser .lp_loader{
+    background: blue;
+    height: 300px;
+    overflow: hidden;
+}
+.linkparser .lp_loader .lp_prev img{
+    background: url("img/prev.png") repeat-x scroll left bottom transparent;
+}
+.linkparser .lp_loader .lp_next img{
+    background: url("img/next.png") repeat-x scroll left bottom transparent;
+}
+.linkparser .lp_loader .lp_loading img{
+    background: url("img/load.gif") repeat-x scroll left bottom transparent;
+}
+
+
+
+
+
 .linkparser #atc_bar{width:500px;}
 .linkparser #attach_content{border:1px solid #ccc;padding:10px;margin-top:10px;}
 .linkparser #atc_images {width:100px;height:120px;overflow:hidden;float:left;}
