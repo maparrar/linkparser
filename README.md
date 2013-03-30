@@ -7,6 +7,7 @@ Parse a link, getting the images, the tittle an a description.
 - Modified by maparrar: maparrar (at) gmail (dot) com. [29-mar-13]
     - Create the plugin for the JS code
     - Create a Class for the PHP code
+    - Some other improvements
 
 
 license:
