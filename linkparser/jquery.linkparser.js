@@ -148,8 +148,8 @@
                 '<input type="hidden" class="lp_cur_image" />'+
             '</div>'+
             '<div class="lp_loader">'+
-                '<div class="lp_loading" align="center" id="atc_loading" style="display:none">'+
-                    '<img src="" alt="Loading" />'+
+                '<div class="lp_loading" align="center" id="atc_loading">'+
+//                    '<div src="" alt="Loading" />'+
                 '</div>'+
                 '<div class="lp_content">'+
                     '<div class="lp_response_images"></div>'+
