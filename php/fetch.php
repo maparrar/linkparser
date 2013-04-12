@@ -7,5 +7,6 @@
 
 include_once 'Parser.php';
 $parser=new Parser();
-echo $parser->parse($_GET["url"]);
+$url=rawurldecode($_POST["url"]);
+echo $parser->parse($url);
 ?>

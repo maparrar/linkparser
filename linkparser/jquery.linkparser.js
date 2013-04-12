@@ -1,7 +1,13 @@
-/*LinkParser Plugin v.0.1 (https://github.com/maparrar/linkparser)
- *Mar 2013
+/*LinkParser Plugin v.0.2 (https://github.com/maparrar/linkparser)
+ *Apr 2013
  * - Tony of Redsunsoft: http://www.redsunsoft.com/2011/01/parse-link-like-facebook-with-jquery-and-php/
  * - maparrar: maparrar (at) gmail (dot) com
+ * 
+ * options:
+ *      withInput:  true (default): Create an input to write the url, also add a
+ *                                  parse button. Use urlDefault as placeholder
+ *                  false: Use urlDefault as the url and does not show input or 
+ *                          parser button.
  **/
 ;(function($){
     /**
@@ -29,7 +35,8 @@
     function init(obj,userOptions){
         //Options default variables
         var def = {
-            urlDefault:""
+            urlDefault:"",
+            withInput: true
         };
         var opts=$.extend(def,userOptions);
         
@@ -38,6 +45,11 @@
         
         //Insert the html code
         obj.append(getHtml(opts.urlDefault));
+        
+        //If is without input, run the parser with the urlDefault
+        if(!opts.withInput){
+            parse_link(obj,opts);
+        }
         
         //Assign the parse function to the click event
         obj.find(".lp_parse").click(function(e){
@@ -54,6 +66,9 @@
     function parse_link(obj,opts){
         //Get the elements in variables
         var url=obj.find('.lp_url').val();
+        if(!opts.withInput){
+            url=opts.urlDefault;
+        }
         var loading=obj.find('.lp_loading');
         var loadedUrl=obj.find('.lp_url');
         //Response elements
@@ -71,88 +86,98 @@
         var next=obj.find('.lp_next');
         
         if (!isValidURL(url)) {
-            alert('Please enter a valid url.');
+            system.message('Please enter a valid url.');
             return false;
         } else {
             loading.show();
             loadedUrl.html(url);
-            $.post(opts.fetchScript+"?url="+escape(url),{},function(response){
-                //Set Content
-                respTitle.text(response.title);
-                respDescription.text(response.description);
-                respTotalImages.text(response.total_images);
-                
-                //Hidden images if not available
-                if(response.total_images>0){
-                    //Add the images and hide them
-                    respImages.empty();
-                    $.each(response.images,function(a,b){
-                        respImages.append('<img src="'+b.img+'" width="100" id="'+(a+1)+'">');
-                    });
-                    respImages.find("img").hide();
-                    
-                    //Show first image
-                    respImages.find('img#1').fadeIn();
-                    curImage.val(1);
-                    curImageNum.html(1);
-                }else{
-                    respImages.hide();
-                    respInfo.width("100%");
-                    respImagesInfo.text("No images available");
-                }
-                //Flip Viewable Content 
-                respContent.fadeIn('slow');
-                loading.hide();
+            $.post(
+                opts.fetchScript,
+                {
+                    url:escape(url)
+                },
+                function(response){
+                    //Set Content
+                    respTitle.text(response.title);
+                    respDescription.text(response.description);
+                    respTotalImages.text(response.total_images);
 
-                // prev image
-                prev.click(function(e){
-                    e.preventDefault();
-                    var total_images=parseInt(respTotalImages.text());
-                    if (total_images > 0) {
-                        var index=curImage.val();
-                        var new_index=0;
-                        respImages.find('img#'+index).hide();
-                        if (index > 1) {
-                            new_index = parseInt(index) - parseInt(1);
-                        } else {
-                            new_index = total_images;
-                        }
-                        curImage.val(new_index);
-                        curImageNum.text(new_index);
-                        respImages.find('img#' + new_index).show();
+                    //Hidden images if not available
+                    if(response.total_images>0){
+                        //Add the images and hide them
+                        respImages.empty();
+                        $.each(response.images,function(a,b){
+                            respImages.append('<img src="'+b.img+'" width="100" id="'+(a+1)+'">');
+                        });
+                        respImages.find("img").hide();
+
+                        //Show first image
+                        respImages.find('img#1').fadeIn();
+                        curImage.val(1);
+                        curImageNum.html(1);
+                    }else{
+                        respImages.hide();
+                        respInfo.width("100%");
+                        respImagesInfo.text("No images available");
                     }
-                });
-                // next image
-                next.click(function(e){
-                    e.preventDefault();
-                    var total_images = parseInt(respTotalImages.text());
-                    if (total_images > 0){
-                        var index=curImage.val();
-                        var new_index=0;
-                        respImages.find('img#' + index).hide();
-                        if (index < total_images){
-                            new_index = parseInt(index) + parseInt(1);
-                        }else{
-                            new_index = 1;
+                    //Flip Viewable Content 
+                    respContent.fadeIn('slow');
+                    loading.hide();
+
+                    // prev image
+                    prev.click(function(e){
+                        e.preventDefault();
+                        var total_images=parseInt(respTotalImages.text());
+                        if (total_images > 0) {
+                            var index=curImage.val();
+                            var new_index=0;
+                            respImages.find('img#'+index).hide();
+                            if (index > 1) {
+                                new_index = parseInt(index) - parseInt(1);
+                            } else {
+                                new_index = total_images;
+                            }
+                            curImage.val(new_index);
+                            curImageNum.text(new_index);
+                            respImages.find('img#' + new_index).show();
                         }
-                        curImage.val(new_index);
-                        curImageNum.text(new_index);
-                        respImages.find('img#' + new_index).show();
-                    }
-                });
-            });
+                    });
+                    // next image
+                    next.click(function(e){
+                        e.preventDefault();
+                        var total_images = parseInt(respTotalImages.text());
+                        if (total_images > 0){
+                            var index=curImage.val();
+                            var new_index=0;
+                            respImages.find('img#' + index).hide();
+                            if (index < total_images){
+                                new_index = parseInt(index) + parseInt(1);
+                            }else{
+                                new_index = 1;
+                            }
+                            curImage.val(new_index);
+                            curImageNum.text(new_index);
+                            respImages.find('img#' + new_index).show();
+                        }
+                    });
+                }
+            );
         }
     };
     
     /**
      * Return the html code for the element
-     * @param {string} urlDefault Url by default
+     * @param {object} opts User default options
      * @return {string} Html code
      * */
-    function getHtml(urlDefault){
+    function getHtml(opts){
+        var input="";
+        if(opts.withInput){
+            input='<input class="lp_url" type="text" value="'+opts.urlDefault+'">'+
+                '<input class="lp_parse" type="button" value="Parse" />';
+        }
         return '<div class="lp_link">'+
-                '<input class="lp_url" type="text" value="'+urlDefault+'">'+
-                '<input class="lp_parse" type="button" value="Parse" />'+
+                input+
                 '<input type="hidden" class="lp_cur_image" />'+
             '</div>'+
             '<div class="lp_loader">'+
@@ -183,6 +208,4 @@
                 return false;
         }
     };
-    
-    
 })(jQuery);
