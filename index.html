@@ -7,7 +7,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <!--Include the linkparser plugin and the stylesheet-->
         <link href="linkparser/linkparser.css" type="text/css" rel="stylesheet">
-        <script src="linkparser/jquery.linkparser.min.js"></script>
+        <script src="linkparser/jquery.linkparser.js"></script>
         
         <!--Uncomment this to Include the non-minified linkparser plugin
         <script src="linkparser/jquery.linkparser.js"></script>
@@ -19,6 +19,8 @@
                 $("#firstExample").linkparser({
                     fetchScript:"php/fetch.php",
                     urlDefault:"http://www.redsunsoft.com/2011/01/parse-link-like-facebook-with-jquery-and-php/"
+                },function(){
+                    alert("Success!");
                 });
                 $("#secondExample").linkparser({
                     fetchScript:"php/fetch.php",

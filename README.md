@@ -8,7 +8,7 @@ Parse a link, getting the images, the tittle an a description.
     - Create the plugin for the JS code
     - Create a Class for the PHP code
     - Some other improvements
-
+    - Include a callback at the end of process
 
 license:
 ==========

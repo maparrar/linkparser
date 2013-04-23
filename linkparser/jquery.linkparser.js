@@ -14,15 +14,16 @@
      * Create the plugin for each element provided by JQuery and allow use the
      * public functions over an specified element
      * @param {object} userOptions Options provided by the user
+     * @param {function} callback function to execute after the data was loaded
      * */
-    $.fn.linkparser=function(userOptions){
+    $.fn.linkparser=function(userOptions,callback){
         switch(userOptions){
             case "hideCutted":
                 hideCutted(this);
                 break;
             default:
                 return this.each(function() {
-                    init($(this),userOptions);
+                    init($(this),userOptions,callback);
                 });
         }
     };
@@ -31,8 +32,9 @@
      * Initialize each element of the selector
      * @param {element} obj DOM Element that will be applied the plugin
      * @param {object} userOptions Options provided by the user
+     * @param {function} callback function to execute after the data was loaded
      */
-    function init(obj,userOptions){
+    function init(obj,userOptions,callback){
         //Options default variables
         var def = {
             urlDefault:"",
@@ -44,17 +46,17 @@
         obj.addClass("linkparser");
         
         //Insert the html code
-        obj.append(getHtml(opts.urlDefault));
+        obj.append(getHtml(opts));
         
         //If is without input, run the parser with the urlDefault
         if(!opts.withInput){
-            parse_link(obj,opts);
+            parse_link(obj,opts,callback);
         }
         
         //Assign the parse function to the click event
         obj.find(".lp_parse").click(function(e){
             e.preventDefault();
-            parse_link(obj,opts);
+            parse_link(obj,opts,callback);
         });
     }
     
@@ -62,8 +64,9 @@
      * Parse an url
      * @param {element} obj DOM Element that will be applied the plugin
      * @param {object} opts Options provided by the user mixed with defaults
+     * @param {function} callback function to execute after the data was loaded
      */
-    function parse_link(obj,opts){
+    function parse_link(obj,opts,callback){
         //Get the elements in variables
         var url=obj.find('.lp_url').val();
         if(!opts.withInput){
@@ -123,6 +126,11 @@
                     //Flip Viewable Content 
                     respContent.fadeIn('slow');
                     loading.hide();
+                    
+                    //If callback is defined
+                    if(callback){
+                        callback();
+                    }
 
                     // prev image
                     prev.click(function(e){
