@@ -1,4 +1,4 @@
-/*LinkParser Plugin v.0.2 (https://github.com/maparrar/linkparser)
+/*LinkParser Plugin v.0.3 (https://github.com/maparrar/linkparser)
  *Apr 2013
  * - Tony of Redsunsoft: http://www.redsunsoft.com/2011/01/parse-link-like-facebook-with-jquery-and-php/
  * - maparrar: maparrar (at) gmail (dot) com
